@@ -1,6 +1,6 @@
 import { Component } from "react";
 import API from "../utils/API";
-
+import Table from "../components/table/index"
 class Employee extends Component {
   state = {
     search: "",
@@ -8,6 +8,9 @@ class Employee extends Component {
     results: {},
     error: ""
   };
+
+
+  
 
   // When the component mounts, get a list of all employees
   componentDidMount() {
@@ -55,27 +58,35 @@ class Employee extends Component {
                 </tr>
               </thead>
 
-              {Employee.map(props => (
-                <tbody>
-                  <tr>
 
-                    <td>{props.firstName}</td>
-                    <td>{props.lastName}</td>
-                    <td>{props.age}</td>
-                    <td>{props.phone}</td>
-                    <td>{props.email}</td>
+              <div>
 
-                  </tr>
-                </tbody>
-              ))};
+                <h1>Employee List</h1>
 
-    </table>
-     )
-   </div>
+                {Employee.map(props => (
+
+                  <Table
+                    firstName={props.employee.name.first}
+                    LastName={props.employee.name.last}
+                    address={props.employee.dob.age}
+                    phone={props.employee.phone}
+                    email={props.employee.email}
+
+                  />
+
+
+                ))}
+
+              </div>
+
+            </table>
+
+          </div>
         </div>
       </div>
     )
+  }
 
-  };
+};
 
-  export default Employee;
+export default Employee;

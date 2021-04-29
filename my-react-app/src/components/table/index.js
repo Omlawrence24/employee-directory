@@ -1,7 +1,5 @@
 import React from "react";
-// import API from "../../utils/API";
 // import Employee from "../../pages/Employee"
-
 function Table (props) {
     return (
       <div className="card text-center">
@@ -17,10 +15,9 @@ function Table (props) {
             <th scope="col">Email</th>
           </tr>
         </thead>
-        {props.employee.map(employee => (
+       
         <tbody>
           <tr>
-            
             <td>{props.firstName}</td>
             <td>{props.lastName}</td>
             <td>{props.age}</td>
@@ -29,11 +26,8 @@ function Table (props) {
 
           </tr>
         </tbody>
-          ))}
+        
       </table>
-
-    
-
 
         </div>
         <div className="card-body">{props.children}</div>

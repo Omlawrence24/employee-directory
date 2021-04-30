@@ -1,13 +1,17 @@
 import React from "react";
 // import Employee from "../../pages/Employee"
-function Table (props) {
-    return (
-      <div className="card text-center">
-        <div className="card-header">
-         
-      <table class="table">
+
+
+
+
+// this component handles the employees table
+function Table(props) {
+  return (
+  
+      <table class="table table-bordered border-primary">
         <thead>
           <tr>
+          <th scope="col">#</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Phone Number</th>
@@ -15,25 +19,13 @@ function Table (props) {
             <th scope="col">Email</th>
           </tr>
         </thead>
-       
+
         <tbody>
-          <tr>
-            <td>{props.firstName}</td>
-            <td>{props.lastName}</td>
-            <td>{props.age}</td>
-            <td>{props.phone}</td>
-            <td>{props.email}</td>
-
-          </tr>
+         {props.children}
         </tbody>
-        
-      </table>
 
-        </div>
-        <div className="card-body">{props.children}</div>
-      </div>
-    );
-  }
-  
-  export default Table;
-  
+      </table>
+  );
+}
+
+export default Table;

@@ -1,11 +1,11 @@
 import React from "react";
-import {sortHandler} from "../../pages/Employee"
+import {Employee} from "../../pages/Employee";
 
 
 
 
 // this component handles the employees table
-function Table(props, sortHandler) {
+function Table(props, Employee) {
   return (
   
       <table class="table table-bordered border-primary">

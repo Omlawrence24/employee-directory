@@ -1,19 +1,22 @@
 import React from "react";
-import {Employee} from "../../pages/Employee";
+//import {Employee} from "../../pages/Employee";
 
 
 
 
 // this component handles the employees table
-function Table(props, Employee) {
+function Table(props) {
   return (
-  
+  <div>
       <table class="table table-bordered border-primary">
         <thead>
           <tr>
           <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th 
+           onClick ={ ()=>{props.sortHandler('First Name')}}
+            scope="col">
+              First Name</th>
+            <th scope="col"> Last Name</th>
             <th scope="col">Phone Number</th>
             <th scope="col">Age</th>
             <th scope="col">Email</th>
@@ -24,8 +27,8 @@ function Table(props, Employee) {
          {props.children}
         </tbody>
 
-      </table>
-  );
+      </table></div>
+  )
 }
 
 export default Table;

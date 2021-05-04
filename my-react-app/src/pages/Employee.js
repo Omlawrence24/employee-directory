@@ -31,7 +31,7 @@ class Employee extends Component {
     if (event.target.value === "First Name") {
 
     } if (event.target.value === "Age") {
-      // this.state.dob.age.list(count++)
+
     }
   };
 
@@ -56,65 +56,67 @@ class Employee extends Component {
         } else if (a[heading] === "Age") {
           return a[heading].first.localeCompare(b[heading].first)
         }
-      
+
       }
     }
-    const sortedUsers = this.state.filter.sort(makeAlphabetical)
-        this.setState({
-          filter: sortedUsers
-        })
+    console.log(this.state)
+    const sortedUsers = this.state.employee.sort(makeAlphabetical)
+    this.setState({
+      employee: sortedUsers
+    })
   }
-      handleFormSubmit = event => {
-        event.preventDefault();
-        try {
-          API.getRandomEmployees(this.state.search)
-            .then(res => {
-              if (res.data.status === "error") {
-                throw new Error(res.data.message);
-              }
-              this.setState({ results: res.data.message, error: "" });
-            })
-        }
-        catch (error) {
-          this.setState({ error })
-        }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    try {
+      API.getRandomEmployees(this.state.search)
+        .then(res => {
+          if (res.data.status === "error") {
+            throw new Error(res.data.message);
+          }
+          this.setState({ results: res.data.message, error: "" });
+        })
+    }
+    catch (error) {
+      this.setState({ error })
+    }
 
-      };
+  };
 
-      render() {
-        console.log(this.state.employee)
-        return (
-          <div>
-            <h1> Employee List </h1>
+  render() {
+    console.log(this.state.employee)
+    return (
+      <div>
+        <h1> Employee List </h1>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </input>
-            </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </input>
+        </div>
 
-            <div className="card text-center">
-              <div className="card-header">
-                <div>
+        <div className="card text-center">
+          <div className="card-header">
+            <div>
 
-                  <Table>
-                    {this.state.employee.length > 0 && this.state.employee.map(data => (
-                      <Row
-                        firstName={data.name.first}
-                        lastName={data.name.last}
-                        age={data.dob.age}
-                        phone={data.phone}
-                        email={data.email}
-                      />
-                    ))}
-                  </Table>
-                </div>
-              </div>
+              <Table sortHandler = {this.sortHandler}>
+                
+                {this.state.employee.length > 0 && this.state.employee.map(data => (
+                  <Row
+                    firstName={data.name.first}
+                    lastName={data.name.last}
+                    age={data.dob.age}
+                    phone={data.phone}
+                    email={data.email}
+                  />
+                ))}
+              </Table>
             </div>
           </div>
-        )
-      }
+        </div>
+      </div>
+    )
+  }
 
-    };
+};
 
-    export default Employee;
+export default Employee;

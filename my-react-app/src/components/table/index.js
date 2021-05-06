@@ -11,7 +11,7 @@ function Table(props) {
       <table class="table table-bordered border-primary">
         <thead>
           <tr>
-          <th scope="col">#</th>
+         
             <th 
            onClick ={ ()=>{props.sortHandler('First Name')}}
             scope="col">

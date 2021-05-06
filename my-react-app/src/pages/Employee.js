@@ -29,7 +29,7 @@ class Employee extends Component {
   handleInputChange = event => {
     this.setState({ search: event.target.value });
     if (event.target.value === "First Name") {
-
+    
     } if (event.target.value === "Age") {
 
     }
@@ -102,6 +102,7 @@ class Employee extends Component {
                 
                 {this.state.employee.length > 0 && this.state.employee.map(data => (
                   <Row
+                  //  key={employee._id} 
                     firstName={data.name.first}
                     lastName={data.name.last}
                     age={data.dob.age}

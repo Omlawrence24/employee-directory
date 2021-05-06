@@ -18,7 +18,9 @@ function Table(props) {
               First Name</th>
             <th scope="col"> Last Name</th>
             <th scope="col">Phone Number</th>
-            <th scope="col">Age</th>
+            <th onClick ={ ()=>{props.sortHandler('Age')}}
+             scope="col">
+               Age</th>
             <th scope="col">Email</th>
           </tr>
         </thead>
@@ -27,8 +29,10 @@ function Table(props) {
          {props.children}
         </tbody>
 
-      </table></div>
+      </table>
+      </div>
   )
-}
 
-export default Table;
+ };
+
+export default Table;    
